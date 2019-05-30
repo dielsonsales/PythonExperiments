@@ -1,5 +1,5 @@
 from random import randint
-from libc.stdio cimport FILE, fopen, fclose, fprintf, fgets, printf
+from libc.stdio cimport FILE, fopen, fclose, fprintf, fgets
 
 
 cpdef c_function():
@@ -22,5 +22,4 @@ cpdef read_file(input_path):
 	p = fopen(input_path.encode(), "r")
 	while fgets(s, 100, p) != NULL:
 		print(str(s, 'utf-8'))
-		#printf("%s", s)
 	fclose(p)
