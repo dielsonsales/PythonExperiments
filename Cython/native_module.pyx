@@ -2,8 +2,9 @@ from random import randint
 from libc.stdio cimport FILE, fopen, fclose, fprintf, fgets
 
 
-cpdef c_function():
+cpdef int c_function():
 	cdef int sum = 0
+	cdef int i = 0
 	for i in range(100):
 		sum += randint(0, 100)
 	return sum
@@ -20,6 +21,6 @@ cpdef read_file(input_path):
 	cdef FILE* p
 	cdef char s[100]
 	p = fopen(input_path.encode(), "r")
-	while fgets(s, 100, p) != NULL:
+	while fgets(s, 100, p):
 		print(str(s, 'utf-8'))
 	fclose(p)
